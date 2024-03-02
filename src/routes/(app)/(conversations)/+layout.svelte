@@ -6,6 +6,7 @@
     import ConversationsNavBar from "$lib/components/ConversationsNavBar.svelte";
     import { fade } from "svelte/transition";
     import CreateConversationPage from "../create-conversation/+page.svelte";
+    import UserNavBar from "$lib/components/UserNavBar.svelte";
 
     export let data: PageData;
 
@@ -50,12 +51,12 @@
 }}/>
 
 <main>
-    <!-- {#if showUserNavBar}
-      <UserNavBar
-        authModel={$userStore ?? data.authModel}
-        on:close={() => (showUserNavBar = false)}
-      />
-    {/if} -->
+    {#if showUserNavBar}
+        <UserNavBar
+            authModel={$userStore ?? data.authModel}
+            on:close={() => (showUserNavBar = false)}
+        />
+    {/if}
 
     <ConversationsNavBar
         authModel={$userStore ?? data.authModel}
